@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Football Prediction</title>
+    <title>Football Prediction Table</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -19,11 +19,22 @@
         }
 
         table {
-            width: 50%;
+            width: 80%;
             border-collapse: collapse;
             margin: 20px auto;
             background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
 
         th, td {
@@ -35,28 +46,109 @@
         th {
             background-color: #f2f2f2;
         }
-
+        .result
+        {
+            color: green;
+        }
         .best-tip {
             background-color: #4CAF50;
             color: white;
             font-weight: bold;
         }
+
+        .correct-prediction {
+            color: #4CAF50;
+            font-size: 20px;
+        }
+
+        .incorrect-prediction {
+            color: #FF5733;
+            font-size: 20px;
+        }
+        h2 {
+            text-transform: uppercase;
+        }
+    </style>
     </style>
 </head>
 <body>
 
-    <h2>Football Prediction Table</h2>
+    <h2 id="date1">Sure game for </h2>
 
     <table>
         <tr>
+            <th>League</th>
             <th>Teams</th>
-            <th>Prediction</th>
+            <th>Tip</th>
+            <th>Date</th>
+            <th>Result</th>
         </tr>
         <tr>
-            <td>Napoli vs Roman</td>
-            <td class="best-tip">Team A to Win</td>
+            <td>England - Premier League</td>
+            <td>Brentford vs Manchester City</td>
+            <td class="best-tip">x2</td>
+            <td>05/02 20:45</td>
+            <td><!--Result--></td>
         </tr>
+        <tr>
+            <td>Italy - Serie A</td>
+            <td>Roma vs Cagliari</td>
+            <td class="best-tip">x1</td>
+            <td>05/02 14:00</td>
+            <td><!--Result--></td>
+        </tr>
+        <tr>
+            <td>Greece - Super League 2</td>
+            <td>Niki Volos vs AEK Athens II</td>
+            <td class="best-tip">x1</td>
+            <td>05/02 19:00</td>
+            <td><!--Result--></td>
+        </tr>
+        <tr>
+            <td>Romania - Liga I</td>
+            <td>FCSB vs Farul Constanta</td>
+            <td class="best-tip">x1</td>
+            <td>05/02 18:00</td>
+            <td><!--Result--></td>
+        </tr>
+        <tr>
+            <td>Cyprus - 1. Division</td>
+            <td>APOEL vs AEK Larnaca</td>
+            <td class="best-tip">x1</td>
+            <td>05/02 19:00</td>
+            <td><!--Result--></td>
+        </tr>
+        <tr>
+            <td>Portugal - Segunda Liga</td>
+            <td>Tondela vs Pacos de Ferreira</td>
+            <td class="best-tip">x1</td>
+            <td>05/02 19:30</td>
+            <td class="result">&#10004;</td>
+        </tr>
+        <tr>
+            <td>Israel - Ligat Ha'al</td>
+            <td>Maccabi Haifa vs Maccabi Tel Aviv</td>
+            <td class="best-tip">x1</td>
+            <td>05/02 20:45</td>
+            <td><!--Result--></td>
+        </tr>
+
+        <!-- Add more rows for other predictions -->
     </table>
 
+
+    <h2 id="date1"> Rollover bet for the day </h2>
 </body>
 </html>
+<script> // Function to update the date
+    function updateDate() {
+       const currentDate = new Date();
+       const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+       const formattedDate = currentDate.toLocaleDateString(undefined, options);
+       document.getElementById('date1').innerText = `Sure game for ${formattedDate}`;
+   }
+   
+   // Update the date every second (adjust as needed)
+   setInterval(updateDate, 1000);</script>
+   
+
